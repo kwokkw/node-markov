@@ -74,8 +74,13 @@ This exercise generates random realistic machine-made text based on input text, 
 
 I am not able to figure out how to use ES Module (ESM) syntax in this exercise.
 
-1. How is `package-lock.json` being generated?
+```js
+// markov.js
+export class MarkovMachine {}
 
-2. How to install dependencies?
+// markov.test.js
+// ES Module syntax
+import { MarkovMachine } from "./markov.js";
+```
 
 ## Continue Development

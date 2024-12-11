@@ -1,5 +1,8 @@
 /** Command-line tool to generate Markov text. */
 
+// ES Module syntax
+// import { MarkovMachine } from "./markov.js";
+
 const fs = require("fs");
 const axios = require("axios");
 const { MarkovMachine } = require("./markov");
@@ -50,6 +53,6 @@ function handleOutput(content) {
       process.exit(1);
     }
 
-    console.log("Successfully wrote to file!");
+    console.log("Successfully generated Markov text and wrote to file!");
   });
 }

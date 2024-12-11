@@ -1,8 +1,8 @@
 // ES Module syntax
-// import { MarkovMachine } from "./markov.js";
+import { MarkovMachine } from "./markov.js";
 
 // CommonJS module
-const { MarkovMachine } = require("./markov.js");
+// const { MarkovMachine } = require("./markov.js");
 
 beforeEach(() => {
   this.mm = new MarkovMachine("the cat in the hat");

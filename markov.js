@@ -1,6 +1,6 @@
 /** Textual markov chain generator */
 
-class MarkovMachine {
+export class MarkovMachine {
   /** build/initialize markov machine; read in text.*/
 
   constructor(text) {
@@ -83,4 +83,4 @@ let mm = new MarkovMachine("the cat in the hat");
 mm.makeText();
 
 // CommonJS module
-module.exports = { MarkovMachine };
+// module.exports = { MarkovMachine };
