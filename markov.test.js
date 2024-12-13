@@ -1,25 +1,32 @@
 // ES Module syntax
 import { MarkovMachine } from "./markov.js";
 
-// CommonJS module
-// const { MarkovMachine } = require("./markov.js");
-
-beforeEach(() => {
-  this.mm = new MarkovMachine("the cat in the hat");
-  this.chains = this.mm.chains;
-});
-
 // Grouping Tests
 describe("Test makeChains method", () => {
+  let mm;
+  let chains;
+
+  // Setup before each test
+  beforeEach(() => {
+    mm = new MarkovMachine("the cat in the hat");
+    chains = mm.chains;
+  });
+
+  // Cleanup after each test
+  afterEach(() => {
+    mm = null;
+    chains = null;
+  });
+
   test("Each key should have an array", () => {
-    Object.keys(this.chains).forEach((key) => {
-      expect(Array.isArray(this.chains[key]));
+    Object.keys(chains).forEach((key) => {
+      expect(Array.isArray(chains[key]));
     });
   });
 
   test("The value of the last word should be null", () => {
     const lastWord = "hat";
-    expect(this.chains[lastWord]).toEqual([null]);
+    expect(chains[lastWord]).toEqual([null]);
   });
 
   // Edge cases ///////
@@ -35,25 +42,41 @@ describe("Test makeChains method", () => {
   });
 });
 
+// Grouping Tests
 describe("Test makeText method", () => {
+  let mm;
+  let chains;
+
+  // Setup before each test
+  beforeEach(() => {
+    mm = new MarkovMachine("the cat in the hat");
+    chains = mm.chains;
+  });
+
+  // Cleanup after each test
+  afterEach(() => {
+    mm = null;
+    chains = null;
+  });
+
   test("Test output length", () => {
-    const output = this.mm.makeText();
+    const output = mm.makeText();
     const count = output.split(" ").length;
     expect(count).toBeLessThanOrEqual(100);
   });
 
   test("Output text contains only valid words", () => {
-    const output = this.mm.makeText();
+    const output = mm.makeText();
     const words = output.split(" ");
     words.forEach((word) => {
-      expect(Object.keys(this.chains)).toContain(word);
+      expect(Object.keys(chains)).toContain(word);
     });
   });
 
   test("Test randomness", () => {
     const outputs = [];
-    for (i = 0; i < 100; i++) {
-      const output = this.mm.makeText();
+    for (let i = 0; i < 100; i++) {
+      const output = mm.makeText();
       const firstWord = output.split(" ")[0];
       outputs.push(firstWord);
     }

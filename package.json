@@ -4,12 +4,16 @@
   "description": "This exercise generates random realistic machine-made text based on input text, using a Markov Chain algorithm.",
   "main": "makeText.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js"
   },
   "author": "kwok",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.7.9"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-node": "^29.7.0"
+  }
 }

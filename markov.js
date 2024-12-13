@@ -79,8 +79,5 @@ export class MarkovMachine {
   }
 }
 
-let mm = new MarkovMachine("the cat in the hat");
-mm.makeText();
-
-// CommonJS module
-// module.exports = { MarkovMachine };
+// let mm = new MarkovMachine("the cat in the hat");
+// mm.makeText();
